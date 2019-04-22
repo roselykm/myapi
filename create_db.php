@@ -25,17 +25,23 @@
 			  status int(11) NOT NULL DEFAULT '0',
 			  PRIMARY KEY (id)
 			) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1
-		EOSQL;   	
+		EOSQL;  
+
+		$result = $db->exec($sql_create_contacts_tbl); 	
+		if($result !== false){
+			echo "<br/>Table contacts created....";
+		} else {
+		 	echo "<br/>Error creating table contacts!";
+		}		
 
    }
    catch(PDOException $e) {
       $errorMessage = $e->getMessage();
       echo "<br />$errorMessage";
-   }  
-
-   echo "<br />table contacts created...."; 
+   }
    //*/ 
 
+   //*
    try {
 		$sql_create_users_tbl = <<<EOSQL
 			CREATE TABLE IF NOT EXISTS users (
@@ -49,13 +55,41 @@
 			  addeddate datetime NOT NULL,
 			  PRIMARY KEY (id)
 			) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1;
-		EOSQL;   	
+		EOSQL;
+
+		$result = $db->exec($sql_create_users_tbl); 	
+		if($result !== false){
+			echo "<br/>Table users created....";
+		} else {
+		 	echo "<br/>Error creating table users!";
+		}	   	
 
    }
    catch(PDOException $e) {
       $errorMessage = $e->getMessage();
       echo "<br />$errorMessage";
-   }  
+   }
+   //*/ 
 
-   echo "<br />table contacts created....";  
+   //*
+   try {
+		$sql_insert_user_into_users = <<<EOSQL
+			INSERT INTO 'users' (login', 'password', 'name', 'email', 'mobileno', 'photo', 'addeddate') VALUES ('baba', 'b42a6d93d7969152e0f18f0e41c0f4f2bc9625f06c43dcbc22f6ffb2ffdd6137d93c1cdbb16', 'ali', 'ali@gmail.com', '0123456789', 'default.png', NOW());
+		EOSQL;
+
+		$result = $db->exec($sql_insert_user_into_users); 	
+		if($result !== false){
+			echo "<br/>User ali created....";
+		} else {
+		 	echo "<br/>Error inserting user ali!";
+		}	   	
+
+   }
+   catch(PDOException $e) {
+      $errorMessage = $e->getMessage();
+      echo "<br />$errorMessage";
+   }
+   //*/    
+
+     
 
