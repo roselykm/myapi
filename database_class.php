@@ -226,6 +226,36 @@
          }          
       }
 
+      function getAllUsers {
+         
+         $sql = "SELECT *
+                 FROM users";
+
+         $stmt = $this->db->prepare($sql);
+         $stmt->execute(); 
+         $row_count = $stmt->rowCount();
+
+         $data = array();
+
+         if ($row_count)
+         {
+            while($row = $stmt->fetch(PDO::FETCH_ASSOC))
+            {
+               $user = new User();
+               $user->id = $row['id'];
+               $user->login = $row['login'];
+               $user->name = $row['name'];
+               $user->email = $row['email'];
+               $user->mobileno = $row['mobileno'];
+               $user->photo = $row['photo'];
+
+               array_push($data, $user);
+            }
+         }
+
+         return $data;
+      }
+
       //get all contacts
       function getAllContactsViaLogin($ownerlogin) {
          $sql = "SELECT *

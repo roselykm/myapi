@@ -45,10 +45,10 @@
    //$jwtSecretKey = "jwt_secret_key";
 
    function getDatabase() {
-      $dbhost="127.0.0.1";
-      $dbuser="root";
-      $dbpass="";
-      $dbname="contacts";
+      $dbhost="us-cdbr-iron-east-02.cleardb.net";
+      $dbuser="b955f1346bbd64";
+      $dbpass="ee5daa30";
+      $dbname="heroku_8594579a78ced01";
 
       $db = new Database($dbhost, $dbuser, $dbpass, $dbname);
       return $db;
@@ -134,6 +134,7 @@
             '/registration',
             '/checkemail',
             '/auth',
+            '/users'
          ], 
         'authenticator' => $authenticator
    ]));
@@ -384,7 +385,18 @@
 
       return $response->withJson($data, 200)
                       ->withHeader('Content-type', 'application/json'); 
-   });   
+   });
+
+   //GET - ALL USERS
+   $app->get('/users', function($request, $response){
+
+      $db = getDatabase();
+      $data = $db->getAllUsers();
+      $db->close();
+
+      return $response->withJson($data, 200)
+                      ->withHeader('Content-type', 'application/json');
+   });      
 
    //GET - ALL CONTACTS
    $app->get('/contacts', function($request, $response){
