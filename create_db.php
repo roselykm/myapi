@@ -11,7 +11,7 @@
 	$db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
    $db->setAttribute(PDO::MYSQL_ATTR_FOUND_ROWS, true);   
 
-   //*
+   /*
    try {
 		$sql_create_contacts_tbl = <<<EOSQL
 			CREATE TABLE IF NOT EXISTS contacts (
@@ -41,7 +41,7 @@
    }
    //*/ 
 
-   //*
+   /*
    try {
 		$sql_create_users_tbl = <<<EOSQL
 			CREATE TABLE IF NOT EXISTS users (
@@ -74,7 +74,7 @@
    //*
    try {
 		$sql_insert_user_into_users = <<<EOSQL
-			INSERT INTO 'users' (login', 'password', 'name', 'email', 'mobileno', 'photo', 'addeddate') VALUES ('baba', 'b42a6d93d7969152e0f18f0e41c0f4f2bc9625f06c43dcbc22f6ffb2ffdd6137d93c1cdbb16', 'ali', 'ali@gmail.com', '0123456789', 'default.png', NOW());
+			INSERT INTO users (login', 'password', 'name', 'email', 'mobileno', 'photo', 'addeddate') VALUES ('baba', 'b42a6d93d7969152e0f18f0e41c0f4f2bc9625f06c43dcbc22f6ffb2ffdd6137d93c1cdbb16', 'ali', 'ali@gmail.com', '0123456789', 'default.png', NOW());
 		EOSQL;
 
 		$result = $db->exec($sql_insert_user_into_users); 	
