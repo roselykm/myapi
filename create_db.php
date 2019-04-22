@@ -1,2 +1,2 @@
 <?php
-	echo "<br />Creating db now...."
+	echo "<br />Creating db now....";
