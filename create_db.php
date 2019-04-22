@@ -73,6 +73,9 @@
 
    //*
    try {
+
+   	echo "<br />INSERT INTO users ('login', 'password', 'name', 'email', 'mobileno', 'photo', 'addeddate') VALUES ('baba', 'b42a6d93d7969152e0f18f0e41c0f4f2bc9625f06c43dcbc22f6ffb2ffdd6137d93c1cdbb16', 'ali', 'ali@gmail.com', '0123456789', 'default.png', NOW())";
+   	
 		$sql_insert_user_into_users = <<<EOSQL
 			INSERT INTO users ('login', 'password', 'name', 'email', 'mobileno', 'photo', 'addeddate') VALUES ('baba', 'b42a6d93d7969152e0f18f0e41c0f4f2bc9625f06c43dcbc22f6ffb2ffdd6137d93c1cdbb16', 'ali', 'ali@gmail.com', '0123456789', 'default.png', NOW());
 		EOSQL;
