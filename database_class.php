@@ -226,8 +226,8 @@
          }          
       }
 
-      function getAllUsers {
-         
+      function getAllUsers() {
+
          $sql = "SELECT *
                  FROM users";
 
