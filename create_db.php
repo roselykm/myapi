@@ -11,8 +11,9 @@
 	$db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
    $db->setAttribute(PDO::MYSQL_ATTR_FOUND_ROWS, true);   
 
+   //*
    try {
-		$sql_create_dept_tbl = <<<EOSQL
+		$sql_create_contacts_tbl = <<<EOSQL
 			CREATE TABLE IF NOT EXISTS contacts (
 			  id int(11) NOT NULL AUTO_INCREMENT,
 			  name varchar(150) NOT NULL,
@@ -24,6 +25,30 @@
 			  status int(11) NOT NULL DEFAULT '0',
 			  PRIMARY KEY (id)
 			) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1
+		EOSQL;   	
+
+   }
+   catch(PDOException $e) {
+      $errorMessage = $e->getMessage();
+      echo "<br />$errorMessage";
+   }  
+
+   echo "<br />table contacts created...."; 
+   //*/ 
+
+   try {
+		$sql_create_users_tbl = <<<EOSQL
+			CREATE TABLE IF NOT EXISTS users (
+			  id int(11) NOT NULL AUTO_INCREMENT,
+			  login varchar(50) NOT NULL,
+			  password varchar(250) NOT NULL,
+			  name varchar(150) NOT NULL,
+			  email varchar(250) NOT NULL,
+			  mobileno varchar(15) NOT NULL,
+			  photo varchar(150) NOT NULL DEFAULT 'default.png',
+			  addeddate datetime NOT NULL,
+			  PRIMARY KEY (id)
+			) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1;
 		EOSQL;   	
 
    }
