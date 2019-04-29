@@ -45,10 +45,10 @@
    //$jwtSecretKey = "jwt_secret_key";
 
    function getDatabase() {
-      $dbhost="us-cdbr-iron-east-02.cleardb.net";
-      $dbuser="b955f1346bbd64";
-      $dbpass="ee5daa30";
-      $dbname="heroku_8594579a78ced01";
+      $dbhost="";
+      $dbuser="";
+      $dbpass="";
+      $dbname="";
 
       $db = new Database($dbhost, $dbuser, $dbpass, $dbname);
       return $db;
